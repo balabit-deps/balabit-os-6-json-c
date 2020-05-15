@@ -30,6 +30,10 @@ if [ "$1" = configure ]; then
         # doing nothing) but it's simple enough to perform the check
         # here and save Upstart the effort.
         :
+    elif dpkg --compare-versions "$2" eq 0.11-4ubuntu2.1 || [ -f /var/run/jsonc_dont_reexec_upstart ]; then
+        # Don't do anything if upgrading from 0.11-4ubuntu2.1, as upstart
+        # will die (see https://launchpad.net/bugs/1878723)
+        rm -f /var/run/jsonc_dont_reexec_upstart
     elif dpkg --compare-versions "$UPSTART_VERSION_RUNNING" ge 1.6.1; then
         # We are not running inside a chroot and the running version
         # of Upstart supports stateful re-exec, so we can

@@ -1,3 +1,25 @@
+json-c (0.11-4ubuntu2.5) xenial-security; urgency=medium
+
+  * Don't call telinit from the postinst when running on upstart systems
+    if upgrading from 0.11-4ubuntu2.1.
+
+ -- Chris Coulson <chris.coulson@canonical.com>  Fri, 15 May 2020 14:51:30 +0100
+
+json-c (0.11-4ubuntu2.2) xenial-security; urgency=medium
+
+  * Revert the security fixes and rebuild the old version (LP: #1878723)
+
+ -- Chris Coulson <chris.coulson@canonical.com>  Fri, 15 May 2020 12:11:57 +0100
+
+json-c (0.11-4ubuntu2.1) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: Integer overflows
+    - debian/patches/CVE-2020-12762-*.patch: fix a series of
+      integer overflows adding checks in linkhash.c, printbuf.c.
+    - CVE-2020-12762
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Tue, 12 May 2020 10:30:28 -0300
+
 json-c (0.11-4ubuntu2) vivid; urgency=medium
 
   * No change rebuild to get debug symbols on all architectures.
